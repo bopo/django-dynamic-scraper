@@ -1,16 +1,20 @@
 #Stage 2 Update (Python 3)
 from __future__ import unicode_literals
-from builtins import next
-from builtins import str
-from builtins import object
-import hashlib, logging, ntpath
-from dynamic_scraper.models import ScraperElem
+
+import hashlib
+import logging
+import ntpath
+from builtins import next, object, str
+
 from django.utils.encoding import smart_text
-from scrapy.pipelines.images import ImagesPipeline
-from scrapy.utils.python import to_bytes
+
+from dynamic_scraper.models import ScraperElem
 from scrapy.exceptions import DropItem
 from scrapy.http import Request
+from scrapy.pipelines.images import ImagesPipeline
 from scrapy.utils.project import get_project_settings
+from scrapy.utils.python import to_bytes
+
 settings = get_project_settings()
 
 
@@ -162,4 +166,3 @@ class ValidationPipeline(object):
             spider.items_save_count += 1
 
         return item
-

@@ -1,12 +1,18 @@
 #Stage 2 Update (Python 3)
-from future import standard_library
-standard_library.install_aliases()
+import datetime
+import json
+import urllib.parse
+import urllib.request
 from builtins import object
-import datetime, json
-import urllib.request, urllib.parse, http.client
-from scrapy.utils.project import get_project_settings
-settings = get_project_settings()
+
+import http.client
+from future import standard_library
+
 from dynamic_scraper.models import Scraper
+from scrapy.utils.project import get_project_settings
+
+standard_library.install_aliases()
+settings = get_project_settings()
 
 class TaskUtils(object):
     
@@ -69,4 +75,3 @@ class TaskUtils(object):
         if not self._pending_jobs(checker_name):
             for ref_object in ref_obj_list:
                 self._run_spider(id=ref_object.pk, spider=checker_name, run_type='TASK', do_action='yes')
-

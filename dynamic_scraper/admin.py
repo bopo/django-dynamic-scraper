@@ -1,14 +1,16 @@
 #Stage 2 Update (Python 3)
 from __future__ import unicode_literals
-from builtins import str
-from builtins import object
+
+from builtins import object, str
 from datetime import date
+
+from django import forms
 from django.contrib import admin
 from django.contrib.admin import SimpleListFilter
 from django.core.exceptions import ValidationError
-from django import forms
 from django.forms.models import BaseInlineFormSet
 from django.utils.translation import ugettext_lazy as _
+
 from dynamic_scraper.models import *
 
 

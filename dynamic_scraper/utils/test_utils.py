@@ -1,6 +1,7 @@
 #Stage 2 Update (Python 3)
-from builtins import map
 import unittest
+from builtins import map
+
 
 def build_test_suite_from(test_cases):
     """

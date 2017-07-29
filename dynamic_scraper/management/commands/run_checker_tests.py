@@ -1,13 +1,16 @@
 #Stage 2 Update (Python 3)
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import print_function, unicode_literals
+
 from builtins import str
 from optparse import make_option
-from subprocess import Popen, PIPE
+from subprocess import PIPE, Popen
+
 from django.conf import settings
 from django.core.mail import mail_admins
 from django.core.management.base import BaseCommand
+
 from dynamic_scraper.models import Scraper
+
 
 class Command(BaseCommand):
     help = 'Runs all checker tests'
@@ -74,12 +77,3 @@ class Command(BaseCommand):
             subject += " - Errors while running checker configuration tests"
             
             mail_admins(subject, msg)
-                
-            
-            
-            
-            
-            
-        
-            
-        

@@ -1,8 +1,12 @@
 #Stage 2 Update (Python 3)
 from __future__ import division
+
+import ast
+import datetime
 from builtins import object
-import ast, datetime
+
 from django.core.exceptions import ImproperlyConfigured
+
 
 class Scheduler(object):
     
@@ -50,4 +54,3 @@ class Scheduler(object):
         result = (time_delta, next_action_factor, num_zero_actions)
         
         return result
-        

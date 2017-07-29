@@ -1,29 +1,30 @@
 # -*- coding: utf-8 -*-
 #Stage 2 Update (Python 3)
 from __future__ import unicode_literals
-from builtins import str
-from builtins import map
-from builtins import range
-import ast, datetime, importlib, json, logging, scrapy
 
-from jsonpath_rw import jsonpath, parse
-from jsonpath_rw.lexer import JsonPathLexerError
-
-from scrapy.selector import Selector
-from scrapy.http import Request, FormRequest
-from scrapy.loader import ItemLoader
-from scrapy.loader.processors import Join, TakeFirst
-from scrapy.exceptions import CloseSpider
+import ast
+import datetime
+import importlib
+import json
+import logging
+from builtins import map, range, str
 
 from django.db.models.signals import post_save
 from django.utils.encoding import smart_text
 
-from dynamic_scraper.spiders.django_base_spider import DjangoBaseSpider
+import scrapy
 from dynamic_scraper.models import ScraperElem
+from dynamic_scraper.spiders.django_base_spider import DjangoBaseSpider
+from dynamic_scraper.utils import processors
 from dynamic_scraper.utils.loader import JsonItemLoader
 from dynamic_scraper.utils.scheduler import Scheduler
-from dynamic_scraper.utils import processors
-
+from jsonpath_rw import jsonpath, parse
+from jsonpath_rw.lexer import JsonPathLexerError
+from scrapy.exceptions import CloseSpider
+from scrapy.http import FormRequest, Request
+from scrapy.loader import ItemLoader
+from scrapy.loader.processors import Join, TakeFirst
+from scrapy.selector import Selector
 
 
 class DjangoSpider(DjangoBaseSpider):

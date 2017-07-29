@@ -17,7 +17,6 @@ setup(
         'dynamic_scraper.management',
         'dynamic_scraper.management.commands',
         'dynamic_scraper.migrations',
-        'dynamic_scraper.south_migrations',
         'dynamic_scraper.spiders',
         'dynamic_scraper.utils',
     ],

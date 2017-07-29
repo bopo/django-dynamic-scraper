@@ -1,12 +1,12 @@
 #Stage 2 Update (Python 3)
 from __future__ import unicode_literals
-from django.utils.encoding import python_2_unicode_compatible
-from builtins import range
-from builtins import str
-from builtins import object
+
 import datetime
+from builtins import object, range, str
+
 from django.db import models
 from django.db.models import Q
+from django.utils.encoding import python_2_unicode_compatible
 
 
 @python_2_unicode_compatible

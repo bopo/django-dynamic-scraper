@@ -1,13 +1,15 @@
 #Stage 2 Update (Python 3)
 from __future__ import unicode_literals
-from builtins import str
+
 import logging
+from builtins import str
+
+from dynamic_scraper.models import Scraper
+from dynamic_scraper.spiders.django_base_spider import DjangoBaseSpider
+from pydispatch import dispatcher
 from scrapy import signals
 from scrapy.exceptions import CloseSpider
 from scrapy.http import Request
-from pydispatch import dispatcher
-from dynamic_scraper.spiders.django_base_spider import DjangoBaseSpider
-from dynamic_scraper.models import Scraper
 
 
 class CheckerTest(DjangoBaseSpider):
@@ -152,5 +154,3 @@ class CheckerTest(DjangoBaseSpider):
                 else:
                     self.log("{cs}Checker configuration working (expected x_path result found on reference url page) ({c}).{ce}".format(
                         c=str(checker), cs=self.bcolors['OK'], ce=self.bcolors['ENDC']), logging.INFO)
-                
-        

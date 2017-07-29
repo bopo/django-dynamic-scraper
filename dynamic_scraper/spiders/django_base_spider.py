@@ -1,20 +1,26 @@
 #Stage 2 Update (Python 3)
 from __future__ import unicode_literals
+
+import datetime
+import json
+import logging
+import os
+import sys
 from builtins import str
-import datetime, json, logging, os, sys
-from django.db import connection
-from scrapy import signals
-from scrapy.spiders import Spider
-from scrapy.spiders import CrawlSpider
-from pydispatch import dispatcher
-from scrapy.exceptions import CloseSpider, UsageError
 
 import django
+from django.core.exceptions import ObjectDoesNotExist
+from django.db import connection
+from django.db.models import Q
+
+from dynamic_scraper.models import Log, LogMarker
+from pydispatch import dispatcher
+from scrapy import signals
+from scrapy.exceptions import CloseSpider, UsageError
+from scrapy.spiders import CrawlSpider, Spider
+
 django.setup()
 
-from django.core.exceptions import ObjectDoesNotExist
-from django.db.models import Q
-from dynamic_scraper.models import Log, LogMarker
 
 
 class NoParsingFilter(logging.Filter):
@@ -323,5 +329,3 @@ class DjangoBaseSpider(CrawlSpider):
                         item.delete()
         
         self.dds_logger.log(level, message)
-        
-    

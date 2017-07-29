@@ -1,8 +1,8 @@
 #Stage 2 Update (Python 3)
-import logging, sys
+import logging
+import sys
 
 from jsonpath_rw import jsonpath, parse
-
 from scrapy.loader import ItemLoader
 from scrapy.utils.misc import arg_to_iter
 from scrapy.utils.python import flatten

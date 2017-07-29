@@ -1,7 +1,10 @@
 #Stage 2 Update (Python 3)
 from __future__ import unicode_literals
+
 from django.contrib import admin
-from open_news.models import NewsWebsite, Article
+
+from open_news.models import Article, NewsWebsite
+
 
 class NewsWebsiteAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'url_', 'scraper')

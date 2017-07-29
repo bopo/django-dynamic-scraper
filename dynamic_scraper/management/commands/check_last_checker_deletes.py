@@ -1,14 +1,17 @@
 #Stage 2 Update (Python 3)
-from __future__ import print_function
-from __future__ import unicode_literals
-from builtins import str
+from __future__ import print_function, unicode_literals
+
 import datetime
+from builtins import str
 from optparse import make_option
+
 from django.conf import settings
 from django.core.mail import mail_admins
 from django.core.management import CommandError
 from django.core.management.base import BaseCommand
+
 from dynamic_scraper.models import Scraper
+
 
 class Command(BaseCommand):
     help = 'Checks last checker deletes of a scraper being older than <last_checker_delete_alert_period> period provided in admin form'

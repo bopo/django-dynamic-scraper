@@ -1,19 +1,21 @@
 #Stage 2 Update (Python 3)
 from __future__ import unicode_literals
-from builtins import str
-import datetime, json, logging, os
 
+import datetime
+import json
+import logging
+import os
+from builtins import str
+
+from dynamic_scraper.models import ScraperElem
+from dynamic_scraper.spiders.django_base_spider import DjangoBaseSpider
+from dynamic_scraper.utils.scheduler import Scheduler
 from jsonpath_rw import jsonpath, parse
 from jsonpath_rw.lexer import JsonPathLexerError
-
+from pydispatch import dispatcher
 from scrapy import signals
 from scrapy.exceptions import CloseSpider
 from scrapy.http import Request
-from pydispatch import dispatcher
-
-from dynamic_scraper.spiders.django_base_spider import DjangoBaseSpider
-from dynamic_scraper.models import ScraperElem
-from dynamic_scraper.utils.scheduler import Scheduler
 
 
 class DjangoChecker(DjangoBaseSpider):
@@ -220,4 +222,3 @@ class DjangoChecker(DjangoBaseSpider):
                 self.dds_logger.info("{cs}Item kept.{ce}".format(
                     cs=self.bcolors["OK"], ce=self.bcolors["ENDC"]))
             return
-    

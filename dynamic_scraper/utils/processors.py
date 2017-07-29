@@ -1,7 +1,10 @@
 #Stage 2 Update (Python 3)
 from __future__ import unicode_literals
+
+import datetime
+import logging
+import re
 from builtins import str
-import datetime, logging, re
 
 
 def join(input_list, loader_context):

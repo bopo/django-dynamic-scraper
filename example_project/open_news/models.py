@@ -1,11 +1,13 @@
 #Stage 2 Update (Python 3)
 from __future__ import unicode_literals
-from django.utils.encoding import python_2_unicode_compatible
+
 from django.db import models
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
+from django.utils.encoding import python_2_unicode_compatible
+
+from dynamic_scraper.models import SchedulerRuntime, Scraper
 from scrapy_djangoitem import DjangoItem
-from dynamic_scraper.models import Scraper, SchedulerRuntime
 
 
 @python_2_unicode_compatible
